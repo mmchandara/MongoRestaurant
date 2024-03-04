@@ -107,46 +107,51 @@
             // 
             // btnMenuDisplay
             // 
+            this.btnMenuDisplay.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnMenuDisplay.Location = new System.Drawing.Point(456, 623);
             this.btnMenuDisplay.Name = "btnMenuDisplay";
             this.btnMenuDisplay.Size = new System.Drawing.Size(141, 32);
             this.btnMenuDisplay.TabIndex = 61;
             this.btnMenuDisplay.Text = "Display Menu Items";
-            this.btnMenuDisplay.UseVisualStyleBackColor = true;
+            this.btnMenuDisplay.UseVisualStyleBackColor = false;
             this.btnMenuDisplay.Click += new System.EventHandler(this.btnMenuDisplay_Click);
             // 
             // btnMenuDelete
             // 
+            this.btnMenuDelete.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnMenuDelete.Location = new System.Drawing.Point(309, 623);
             this.btnMenuDelete.Name = "btnMenuDelete";
             this.btnMenuDelete.Size = new System.Drawing.Size(141, 32);
             this.btnMenuDelete.TabIndex = 60;
             this.btnMenuDelete.Text = "Delete Menu Item";
-            this.btnMenuDelete.UseVisualStyleBackColor = true;
+            this.btnMenuDelete.UseVisualStyleBackColor = false;
             this.btnMenuDelete.Click += new System.EventHandler(this.btnMenuDelete_Click);
             // 
             // btnMenuEdit
             // 
+            this.btnMenuEdit.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnMenuEdit.Location = new System.Drawing.Point(162, 623);
             this.btnMenuEdit.Name = "btnMenuEdit";
             this.btnMenuEdit.Size = new System.Drawing.Size(141, 32);
             this.btnMenuEdit.TabIndex = 59;
             this.btnMenuEdit.Text = "Edit Menu Item";
-            this.btnMenuEdit.UseVisualStyleBackColor = true;
+            this.btnMenuEdit.UseVisualStyleBackColor = false;
             this.btnMenuEdit.Click += new System.EventHandler(this.btnMenuEdit_Click);
             // 
             // btnMenuAdd
             // 
+            this.btnMenuAdd.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnMenuAdd.Location = new System.Drawing.Point(15, 623);
             this.btnMenuAdd.Name = "btnMenuAdd";
             this.btnMenuAdd.Size = new System.Drawing.Size(141, 32);
             this.btnMenuAdd.TabIndex = 58;
             this.btnMenuAdd.Text = "Add Menu Item";
-            this.btnMenuAdd.UseVisualStyleBackColor = true;
+            this.btnMenuAdd.UseVisualStyleBackColor = false;
             this.btnMenuAdd.Click += new System.EventHandler(this.btnMenuAdd_Click);
             // 
             // dataGridView2
             // 
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(543, 343);
             this.dataGridView2.Name = "dataGridView2";
@@ -232,46 +237,51 @@
             // 
             // btnDisplay
             // 
+            this.btnDisplay.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnDisplay.Location = new System.Drawing.Point(386, 201);
             this.btnDisplay.Name = "btnDisplay";
             this.btnDisplay.Size = new System.Drawing.Size(141, 32);
             this.btnDisplay.TabIndex = 47;
             this.btnDisplay.Text = "Display Users";
-            this.btnDisplay.UseVisualStyleBackColor = true;
+            this.btnDisplay.UseVisualStyleBackColor = false;
             this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnDelete.Location = new System.Drawing.Point(239, 201);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(141, 32);
             this.btnDelete.TabIndex = 46;
             this.btnDelete.Text = "Delete User";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnEdit.Location = new System.Drawing.Point(386, 163);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(141, 32);
             this.btnEdit.TabIndex = 45;
             this.btnEdit.Text = "Edit User";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnAdd.Location = new System.Drawing.Point(239, 163);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(141, 32);
             this.btnAdd.TabIndex = 44;
             this.btnAdd.Text = "Add User";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(543, 56);
             this.dataGridView1.Name = "dataGridView1";
@@ -361,6 +371,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1125, 670);
             this.Controls.Add(this.richDes);
             this.Controls.Add(this.txtMenuPrice);

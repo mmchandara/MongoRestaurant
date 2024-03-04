@@ -60,12 +60,13 @@
             // 
             // btnTable
             // 
+            this.btnTable.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnTable.Location = new System.Drawing.Point(115, 574);
             this.btnTable.Name = "btnTable";
             this.btnTable.Size = new System.Drawing.Size(302, 80);
             this.btnTable.TabIndex = 114;
             this.btnTable.Text = "View Table Status";
-            this.btnTable.UseVisualStyleBackColor = true;
+            this.btnTable.UseVisualStyleBackColor = false;
             this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // label7
@@ -96,26 +97,29 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.Location = new System.Drawing.Point(294, 492);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 32);
             this.button1.TabIndex = 110;
             this.button1.Text = "Display Users";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
             this.button3.Location = new System.Drawing.Point(115, 492);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(141, 32);
             this.button3.TabIndex = 109;
             this.button3.Text = "Assign Role";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridView2
             // 
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(564, 390);
             this.dataGridView2.Name = "dataGridView2";
@@ -164,12 +168,13 @@
             // 
             // btnDiscount
             // 
+            this.btnDiscount.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnDiscount.Location = new System.Drawing.Point(608, 251);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(141, 32);
             this.btnDiscount.TabIndex = 103;
             this.btnDiscount.Text = "Apply Discount";
-            this.btnDiscount.UseVisualStyleBackColor = true;
+            this.btnDiscount.UseVisualStyleBackColor = false;
             this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
             // 
             // label3
@@ -216,46 +221,51 @@
             // 
             // btnDisplay
             // 
+            this.btnDisplay.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnDisplay.Location = new System.Drawing.Point(461, 251);
             this.btnDisplay.Name = "btnDisplay";
             this.btnDisplay.Size = new System.Drawing.Size(141, 32);
             this.btnDisplay.TabIndex = 97;
             this.btnDisplay.Text = "Display Orders";
-            this.btnDisplay.UseVisualStyleBackColor = true;
+            this.btnDisplay.UseVisualStyleBackColor = false;
             this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnDelete.Location = new System.Drawing.Point(314, 251);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(141, 32);
             this.btnDelete.TabIndex = 96;
             this.btnDelete.Text = "Delete Order";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEdit.Location = new System.Drawing.Point(167, 251);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(141, 32);
             this.btnEdit.TabIndex = 95;
             this.btnEdit.Text = "Edit Order";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnAdd.Location = new System.Drawing.Point(18, 251);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(141, 32);
             this.btnAdd.TabIndex = 94;
             this.btnAdd.Text = "Add Order";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(564, 39);
             this.dataGridView1.Name = "dataGridView1";
@@ -299,6 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1148, 682);
             this.Controls.Add(this.btnTable);
             this.Controls.Add(this.label7);
