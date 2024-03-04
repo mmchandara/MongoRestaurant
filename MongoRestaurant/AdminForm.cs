@@ -30,9 +30,9 @@ namespace MongoRestaurant
         {
             [BsonId]
             public ObjectId Id { get; set; }
-            [BsonElement ("Username")]
+            [BsonElement("Username")]
             public string Username { get; set; }
-            [BsonElement ("Password")]
+            [BsonElement("Password")]
             public string Password { get; set; }
             [BsonElement("Role")]
             public string Role { get; set; }
@@ -42,14 +42,15 @@ namespace MongoRestaurant
         private void DisplayUsers()
         {
             var usersCollection = db.GetCollection<User>("Users");
-            
+
             List<User> users = usersCollection.AsQueryable().ToList();
             dataGridView1.DataSource = users;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 var usersCollection = db.GetCollection<User>("Users");
 
                 User userDocument = new User
@@ -78,7 +79,7 @@ namespace MongoRestaurant
             {
                 var usersCollection = db.GetCollection<User>("Users");
                 var filter = Builders<User>.Filter.Eq("Id", ObjectId.Parse(txtID.Text));
-                var update = Builders<User>.Update.Set("Username", txtUser.Text).Set("Password", txtPass.Text).Set("Role", comboRole.Text) .Set("AccessLevel", int.Parse(comboAccess.Text));
+                var update = Builders<User>.Update.Set("Username", txtUser.Text).Set("Password", txtPass.Text).Set("Role", comboRole.Text).Set("AccessLevel", int.Parse(comboAccess.Text));
 
                 usersCollection.UpdateOne(filter, update);
             }
@@ -121,9 +122,9 @@ namespace MongoRestaurant
         {
             [BsonId]
             public ObjectId Id { get; set; }
-            [BsonElement ("Name")]
+            [BsonElement("Name")]
             public string Name { get; set; }
-            [BsonElement ("Category")]
+            [BsonElement("Category")]
             public string Category { get; set; }
             [BsonElement("Description")]
             public string Description { get; set; }
