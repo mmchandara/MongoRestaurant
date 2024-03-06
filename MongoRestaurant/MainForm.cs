@@ -25,35 +25,57 @@ namespace MongoRestaurant
         public MainForm()
         {
             InitializeComponent();
-            var usersData = new List<BsonDocument>
+            var userFilter = Builders<BsonDocument>.Filter.Exists("Username");
+            var usersExist = usersCollection.Find(userFilter).Any();
+            if (!usersExist)
             {
-                new BsonDocument { {"Username", "Johndoe545" }, { "Password", "johndoeiscool" }, { "Role", "Admin" }, { "AccessLevel", 3 } },
+                var usersData = new List<BsonDocument>
+                {
+                new BsonDocument { { "Username", "Johndoe545" }, { "Password", "johndoeiscool" }, { "Role", "Admin" }, { "AccessLevel", 3 } },
                 new BsonDocument { { "Username", "Mary01Jane" }, { "Password", "Mmary@134" }, { "Role", "Staff" }, { "AccessLevel", 1 } },
                 new BsonDocument { { "Username", "Jane12" }, { "Password", "janjan" }, { "Role", "Manager" }, { "AccessLevel", 2 } }
-            };
-            usersCollection.InsertMany(usersData);
+                };
+                usersCollection.InsertMany(usersData);
+            }
 
-            var menuData = new List<BsonDocument>
+            var menuFilter = Builders<BsonDocument>.Filter.Exists("Name");
+            var menuExists = menuCollection.Find(menuFilter).Any();
+            if (!menuExists)
             {
+                var menuData = new List<BsonDocument>
+                {
                 new BsonDocument { { "Name", "Fried Rice" }, { "Category", "Entrée" }, { "Description", "Plate of Fried Rice" }, { "Price", 12.99 } },
                 new BsonDocument { { "Name", "California Roll" }, { "Category", "Sushi" }, { "Description", "Sushi Roll with imitation crab, avocado, and cucumber" }, { "Price", 13.99 } },
                 new BsonDocument { { "Name", "Crab Puffs" }, { "Category", "Appetizer" }, { "Description", "Deep fried crab ragoons" }, { "Price", 8.99 } }
-            };
-            menuCollection.InsertMany(menuData);
+                };
+                menuCollection.InsertMany(menuData);
+            }
 
-            var orderData = new List<BsonDocument>
+            var orderFilter = Builders<BsonDocument>.Filter.Exists("UserID");
+            var orderExists = ordersCollection.Find(orderFilter).Any();
+            if (!orderExists)
             {
-                new BsonDocument { { "UserID", 1 }, { "ItemList", "Item 1" }, { "TotalAmount", 15.25 }, { "Discounts", 0 } },
-                new BsonDocument { { "UserID", 2 }, { "ItemList", "Item 2" }, { "TotalAmount", 11.34 }, { "Discounts", 5 } },
-                new BsonDocument { { "UserID", 3 }, { "ItemList", "Item 3" }, { "TotalAmount", 16.25 }, { "Discounts", 15 } }
-            };
-            var tableData = new List<BsonDocument>
+                var orderData = new List<BsonDocument>
+                {
+                new BsonDocument { { "UserID", 1 }, { "ItemList", "Fried Rice" }, { "TotalAmount", 15.25 }, { "Discounts", 0 } },
+                new BsonDocument { { "UserID", 2 }, { "ItemList", "California Roll" }, { "TotalAmount", 11.34 }, { "Discounts", 5 } },
+                new BsonDocument { { "UserID", 3 }, { "ItemList", "Crab Puffs" }, { "TotalAmount", 16.25 }, { "Discounts", 15 } }
+                };
+                ordersCollection.InsertMany(orderData);
+            }
+
+            var tableFilter = Builders<BsonDocument>.Filter.Exists("Status");
+            var tableExists = tablesCollection.Find(tableFilter).Any();
+            if (!tableExists)
             {
+                var tableData = new List<BsonDocument>
+                {
                 new BsonDocument { { "Status", "Available" }, { "ReservationDetails", "No Reservations" } },
                 new BsonDocument { { "Status", "Occupied" }, { "ReservationDetails", "No Reservations" } },
                 new BsonDocument { { "Status", "Reserved" }, { "ReservationDetails", "Reservations at 6pm" } }
-            };
-            tablesCollection.InsertMany(tableData);
+                };
+                tablesCollection.InsertMany(tableData);
+            }   
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -92,7 +114,8 @@ namespace MongoRestaurant
             {
                 MessageBox.Show(ex.Message);
             }
-
+            txtUser.Clear();
+            txtPassword.Clear();
         }
     }
 }

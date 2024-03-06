@@ -107,17 +107,15 @@ namespace MongoRestaurant
             {
                 var ordersCollection = db.GetCollection<Order>("Orders");
                 var orderFilter = Builders<Order>.Filter.Eq("ID", orderID);
-                var orderDocument = ordersCollection.Find(orderFilter).FirstOrDefault();
+                var order = ordersCollection.Find(orderFilter).FirstOrDefault();
 
-                if (orderDocument != null)
+                if (order != null)
                 {
-                    var itemList = orderDocument.ItemList;
-                    var itemPrices = itemList.Split(',').Select(decimal.Parse);
-                    totalAmount = itemPrices.Sum();
+                    totalAmount = order.TotalAmount;
                 }
                 else
                 {
-                    MessageBox.Show($"Order with OrderID {ObjectId.Parse(txtOrderID.Text)} not found.");
+                    MessageBox.Show($"Order with OrderID {orderID} not found.");
                 }
             }
             catch (Exception ex)
@@ -127,23 +125,30 @@ namespace MongoRestaurant
 
             return totalAmount;
         }
-        private void ApplyDiscountAndUpdate(ObjectId orderID, decimal discountedAmount, decimal discountAmount)
+        private decimal ApplyDiscount(decimal totalAmount, decimal discountPercentage)
+        {
+            decimal discountAmount = (totalAmount * discountPercentage) / 100;
+            return totalAmount - discountAmount;
+        }
+        private void UpdateTotalAmountInDatabase(ObjectId orderId, decimal discountedAmount)
         {
             try
             {
-                var ordersCollection = db.GetCollection<Order>("Orders");
-                var orderFilter = Builders<Order>.Filter.Eq("ID", orderID);
-                var update = Builders<Order>.Update.Set("TotalAmount", discountedAmount).Set("Discounts", discountAmount);
+                var ordersCollection = db.GetCollection<BsonDocument>("Orders");
+                var filter = Builders<BsonDocument>.Filter.Eq("ID", orderId);
+                var update = Builders<BsonDocument>.Update
+                    .Set("TotalAmount", discountedAmount)
+                    .Set("Discounts", decimal.Parse(txtDiscount.Text));
 
-                var result = ordersCollection.UpdateOne(orderFilter, update);
+                var result = ordersCollection.UpdateOne(filter, update);
 
                 if (result.ModifiedCount > 0)
                 {
-                    MessageBox.Show($"Discount applied successfully to OrderID {orderID}. New total amount: {discountedAmount:C}");
+                    MessageBox.Show($"Discount applied successfully to OrderID {orderId}. New total amount: {discountedAmount:C}");
                 }
                 else
                 {
-                    MessageBox.Show($"Order with OrderID {orderID} not found.");
+                    MessageBox.Show($"Order with OrderID {orderId} not found.");
                 }
             }
             catch (Exception ex)
@@ -156,7 +161,7 @@ namespace MongoRestaurant
             try
             {
                 var ordersCollection = db.GetCollection<Order>("Orders");
-                var orderFilter = Builders<Order>.Filter.Eq("OrderID", orderID);
+                var orderFilter = Builders<Order>.Filter.Eq("ID", orderID);
                 var orderDocument = ordersCollection.Find(orderFilter).FirstOrDefault();
 
                 if (orderDocument != null)
@@ -197,17 +202,18 @@ namespace MongoRestaurant
         {
             try
             {
-                if (ObjectId.TryParse(txtOrderID.Text, out ObjectId orderID) && decimal.TryParse(txtDiscount.Text, out decimal discountPercentage))
+                if (decimal.TryParse(txtDiscount.Text, out decimal discountPercentage))
                 {
-                    decimal totalAmount = CalculateTotalAmount(orderID);
-                    decimal discountAmount = (totalAmount * discountPercentage) / 100;
-                    decimal discountedAmount = totalAmount - discountAmount;
+                    ObjectId orderId = ObjectId.Parse(txtOrderID.Text);
 
-                    ApplyDiscountAndUpdate(orderID, discountedAmount, discountAmount);
+                    decimal totalAmount = CalculateTotalAmount(orderId);
+                    decimal discountedAmount = ApplyDiscount(totalAmount, discountPercentage);
+
+                    UpdateTotalAmountInDatabase(orderId, discountedAmount);
                 }
                 else
                 {
-                    MessageBox.Show("Please enter a valid OrderID and discount percentage.");
+                    MessageBox.Show("Invalid discount percentage. Please enter a valid decimal value.");
                 }
             }
             catch (Exception ex)
