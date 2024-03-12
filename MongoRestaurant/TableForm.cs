@@ -15,7 +15,7 @@ namespace MongoRestaurant
 {
     public partial class TableForm : Form
     {
-        static MongoClient dbClient = new MongoClient("mongodb+srv://mitchelchandara:Dragonnov669@cluster0.lfw8wai.mongodb.net/");
+        static MongoClient dbClient = new MongoClient("BLANK");
         static IMongoDatabase db = dbClient.GetDatabase("Restaurantdb");
         static IMongoCollection<Table> tablesCollection = db.GetCollection<Table>("Tables");
         public TableForm()

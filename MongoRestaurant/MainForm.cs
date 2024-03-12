@@ -15,7 +15,7 @@ namespace MongoRestaurant
 {
     public partial class MainForm : Form
     {
-        static MongoClient dbClient = new MongoClient("mongodb+srv://mitchelchandara:Dragonnov669@cluster0.lfw8wai.mongodb.net/");
+        static MongoClient dbClient = new MongoClient("BLANK");
         static IMongoDatabase db = dbClient.GetDatabase("Restaurantdb");
         static IMongoCollection<BsonDocument> usersCollection = db.GetCollection<BsonDocument>("Users");
         static IMongoCollection<BsonDocument> menuCollection = db.GetCollection<BsonDocument>("Menu");
